@@ -90,4 +90,4 @@ node scripts/verify-evidence.js
 
 审核基于合成元数据与确定规则，没有图片识别、视频理解和法律判断。排期采用“一个时间槽容纳一个素材”的简化模型，没有渠道、账号或发布时长维度。文件存储适合本地演示；进程崩溃留下锁文件时需人工核查。确认改期会生成新草稿，旧建议不会自动归档。
 
-候选人尚未提供个人修改记录、实际投入时间与 GitHub 地址，相关位置已明确留待补充。请按自己的操作补全后提交。
+仓库地址为 [vanishValley/content-scheduling-agent](https://github.com/vanishValley/content-scheduling-agent)。候选人的个人修改记录和实际投入时间仍需按本人操作补充。
