@@ -59,7 +59,7 @@ export class BusinessTools {
       const changed = args.slot !== this.request.desired_slot;
       const pending = changed && this.request.hard_time && this.request.approved_slot !== args.slot;
       const draft = {
-        id: this.draftId(id, args.slot), material_id: id, requested_slot: this.request.desired_slot,
+        id: this.draftId(id), material_id: id, requested_slot: this.request.desired_slot,
         hard_time: this.request.hard_time, approved_slot: this.request.approved_slot ?? null,
         suggested_slot: args.slot, effective_slot: pending ? null : args.slot,
         pending_confirmation: pending, status: 'draft', published: false,
@@ -73,13 +73,19 @@ export class BusinessTools {
       state.save_status = result.ok ? result.duplicate ? 'duplicate' : 'saved' : 'failed';
       state.draft_id = result.ok ? result.draft.id : null;
       if (!result.ok) state.last_error = `save_draft:${result.code}`;
-      else delete state.last_error;
+      else {
+        // 重复请求返回首次保存的实际内容，不能把本轮新建议冒充已保存内容。
+        state.suggested_slot = result.draft.suggested_slot;
+        state.pending_confirmation = result.draft.pending_confirmation ?
+          [`原要求 ${result.draft.requested_slot}；建议 ${result.draft.suggested_slot}，请用户确认改期`] : [];
+        delete state.last_error;
+      }
       return result;
     }
     return { ok: false, code: 'UNKNOWN_TOOL' };
   }
-  draftId(id, slot) {
-    const canonical = [id, this.request.desired_slot, this.request.hard_time, this.request.approved_slot ?? null, slot, this.items[id].material];
+  draftId(id) {
+    const canonical = [id, this.request.desired_slot, this.request.hard_time, this.request.approved_slot ?? null, this.items[id].material];
     return createHash('sha256').update(JSON.stringify(canonical)).digest('hex').slice(0, 24);
   }
   sameRequest(row, id) {

@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-05T10:40:34.736Z",
+  "started_at": "2026-11-05T10:44:22.044Z",
   "provider": {
     "kind": "mock",
     "model": "deterministic-fixture-policy"
@@ -12,7 +12,7 @@
     "hard_time": true
   },
   "max_steps": 12,
-  "finished_at": "2026-11-05T10:40:34.739Z",
+  "finished_at": "2026-11-05T10:44:22.047Z",
   "status": "completed",
   "reason": "草稿已保存，可供人工查看；未执行发布",
   "items": [
@@ -24,7 +24,7 @@
       "suggested_slot": "2026-11-06T19:00:00+08:00",
       "pending_confirmation": [],
       "save_status": "saved",
-      "draft_id": "6c35b5f3a1064aaf618d05ee",
+      "draft_id": "cbedaf1b0cb30de63ffe4d46",
       "status": "completed"
     }
   ],
@@ -111,7 +111,7 @@
         "ok": true,
         "duplicate": false,
         "draft": {
-          "id": "6c35b5f3a1064aaf618d05ee",
+          "id": "cbedaf1b0cb30de63ffe4d46",
           "material_id": "M01",
           "requested_slot": "2026-11-06T19:00:00+08:00",
           "hard_time": true,

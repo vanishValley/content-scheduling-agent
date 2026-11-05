@@ -7,5 +7,10 @@
   "scope": "从任务创建到提交包整理；候选人本人用时未提供",
   "test_summary": "examples/test-results/summary.json",
   "mock_summary": "examples/mock/summary.json",
-  "live_validation": "未成功；外部凭据调用授权待确认"
+  "live_validation": "未成功；外部凭据调用授权待确认",
+  "followup_recorded_at": "2026-11-05T10:45:28.202Z",
+  "followup_changes": [
+    "按原始请求去重，覆盖再次选择不同备选时间的情况",
+    "28 项测试通过，12 组离线评估达到预期"
+  ]
 }

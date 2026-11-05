@@ -133,3 +133,19 @@ test('真实保存抛异常也必须记为保存失败', async t => {
   assert.equal(result.items[0].draft_id, null);
   assert.match(result.items[0].last_error, /SAVE_EXCEPTION/);
 });
+test('同一请求再次选择不同备选时段仍复用原草稿', async t => {
+  const ctx = await context(t, cases.find(c => c.name === 'conflict'));
+  const first = await runAgent(ctx);
+  const policy = new MockProvider();
+  const provider = { info: { kind: 'test' }, next: async state => {
+    const action = await policy.next(state);
+    if (action.name === 'save_draft') action.arguments.slot = '2026-11-06T20:00:00+08:00';
+    return action;
+  } };
+  const second = await runAgent({ ...ctx, provider });
+  assert.equal((await ctx.store.list()).length, 1);
+  assert.equal(second.items[0].save_status, 'duplicate');
+  assert.equal(second.items[0].draft_id, first.items[0].draft_id);
+  assert.equal(second.items[0].suggested_slot, '2026-11-06T19:00:00+08:00');
+  assert.match(second.items[0].pending_confirmation[0], /19:00/);
+});

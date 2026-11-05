@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-05T10:40:34.717Z",
+  "started_at": "2026-11-05T10:44:22.024Z",
   "provider": {
     "kind": "mock",
     "model": "deterministic-fixture-policy"
@@ -12,7 +12,7 @@
     "hard_time": true
   },
   "max_steps": 12,
-  "finished_at": "2026-11-05T10:40:34.720Z",
+  "finished_at": "2026-11-05T10:44:22.028Z",
   "status": "needs_confirmation",
   "reason": "建议草稿已保存，改期仍需用户确认",
   "items": [
@@ -26,7 +26,7 @@
         "原要求 2026-11-06T18:00:00+08:00；建议 2026-11-06T19:00:00+08:00，请用户确认改期"
       ],
       "save_status": "saved",
-      "draft_id": "be56ccfacb3531370e27bf4a",
+      "draft_id": "f3e713f6beebd9ab880ebdc1",
       "status": "needs_confirmation"
     }
   ],
@@ -113,7 +113,7 @@
         "ok": true,
         "duplicate": false,
         "draft": {
-          "id": "be56ccfacb3531370e27bf4a",
+          "id": "f3e713f6beebd9ab880ebdc1",
           "material_id": "M01",
           "requested_slot": "2026-11-06T18:00:00+08:00",
           "hard_time": true,

@@ -10,7 +10,7 @@ node scripts/evaluate.js --provider mock
 node scripts/verify-evidence.js
 ```
 
-本次测试为 27 项通过、0 项失败。离线评估 12 组用例全部达到各自的预期状态，其中重复提交实际运行两次。测试报告见 [TAP 原始记录](../examples/test-results/node-test.tap)和[摘要](../examples/test-results/summary.json)，评估汇总见 [mock/summary.json](../examples/mock/summary.json)。
+本次测试为 28 项通过、0 项失败。离线评估 12 组用例全部达到各自的预期状态，其中重复提交实际运行两次。测试报告见 [TAP 原始记录](../examples/test-results/node-test.tap)和[摘要](../examples/test-results/summary.json)，评估汇总见 [mock/summary.json](../examples/mock/summary.json)。
 
 “达到预期”包含正确拒绝和明确失败，例如保存工具故障时，预期就是 `incomplete`。不能把该指标解释为业务请求全部成功。
 
@@ -58,6 +58,8 @@ node scripts/verify-evidence.js
 修正后，模型结束依据只保留在 Trace，最终 `reason` 和状态按真实工具记录生成。同一条反例重跑通过，完整测试也通过。这个修改限制了模型能影响的结果范围，避免文案掩盖实际失败。
 
 最后核对还补充了真实写盘异常用例。即使存储函数抛出异常，输出也必须为 `save_status: failed`，不能停留在“未尝试”。步骤上限夹具也带上了运行参数，使用 CLI 直接读取同一输入文件即可复现。
+
+复核重复提交时，新增测试让同一请求首次选择 19:00、再次选择 20:00。旧实现把建议时段算入草稿 ID，测试发现生成了两份草稿。修改后按原始请求去重，并返回首次保存的实际时间；该测试通过，草稿数保持 1。
 
 ## 证据的限制
 
