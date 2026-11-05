@@ -1,0 +1,87 @@
+{
+  "started_at": "2026-11-05T10:40:34.685Z",
+  "provider": {
+    "kind": "mock",
+    "model": "deterministic-fixture-policy"
+  },
+  "request": {
+    "material_ids": [
+      "M02"
+    ],
+    "desired_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true
+  },
+  "max_steps": 12,
+  "finished_at": "2026-11-05T10:40:34.685Z",
+  "status": "needs_input",
+  "reason": "资料不足，请补充每项素材的待确认信息",
+  "items": [
+    {
+      "material_id": "M02",
+      "audit_status": "missing",
+      "risks": [],
+      "missing_fields": [
+        "rights"
+      ],
+      "suggested_slot": null,
+      "pending_confirmation": [
+        "请补充：rights"
+      ],
+      "save_status": "not_attempted",
+      "draft_id": null,
+      "status": "needs_input"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "action": {
+        "name": "read_material",
+        "arguments": {
+          "material_id": "M02",
+          "reason": "先核对素材元数据"
+        }
+      },
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "剪辑教程",
+          "description": "介绍剪辑步骤",
+          "platform": "视频号"
+        },
+        "supplement_available": false
+      }
+    },
+    {
+      "step": 2,
+      "action": {
+        "name": "check_rules",
+        "arguments": {
+          "material_id": "M02",
+          "reason": "核对已读取资料是否符合规则"
+        }
+      },
+      "result": {
+        "ok": true,
+        "audit_status": "missing",
+        "missing_fields": [
+          "rights"
+        ],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "action": {
+        "name": "finish",
+        "arguments": {
+          "reason": "已取得保存结果，或现有资料不足以继续"
+        }
+      },
+      "result": {
+        "ok": true,
+        "code": "FINISHED"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"step":1,"action":{"name":"read_material","arguments":{"material_id":"M03","reason":"先核对素材元数据"}},"result":{"ok":true,"material":{"title":"效果宣传","description":"保证涨粉，效果承诺","platform":"视频号","rights":"unknown"},"supplement_available":false}}
+{"step":2,"action":{"name":"check_rules","arguments":{"material_id":"M03","reason":"核对已读取资料是否符合规则"}},"result":{"ok":true,"audit_status":"blocked","missing_fields":[],"risks":["版权归属未确认","命中禁用声明：保证涨粉"]}}
+{"step":3,"action":{"name":"finish","arguments":{"reason":"已取得保存结果，或现有资料不足以继续"}},"result":{"ok":true,"code":"FINISHED"}}

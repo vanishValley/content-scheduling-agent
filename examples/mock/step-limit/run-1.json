@@ -1,0 +1,69 @@
+{
+  "started_at": "2026-11-05T10:40:34.857Z",
+  "provider": {
+    "kind": "mock",
+    "model": "deterministic-fixture-policy"
+  },
+  "request": {
+    "material_ids": [
+      "M01"
+    ],
+    "desired_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true
+  },
+  "max_steps": 2,
+  "finished_at": "2026-11-05T10:40:34.857Z",
+  "status": "incomplete",
+  "reason": "STEP_LIMIT：达到执行上限，任务未完成；已成功保存的草稿保留",
+  "items": [
+    {
+      "material_id": "M01",
+      "audit_status": "passed",
+      "risks": [],
+      "missing_fields": [],
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "save_status": "not_attempted",
+      "draft_id": null,
+      "status": "incomplete"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "action": {
+        "name": "read_material",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "先核对素材元数据"
+        }
+      },
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "字幕功能演示",
+          "description": "展示为视频添加字幕的操作",
+          "platform": "视频号",
+          "rights": "owned"
+        },
+        "supplement_available": false
+      }
+    },
+    {
+      "step": 2,
+      "action": {
+        "name": "check_rules",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "核对已读取资料是否符合规则"
+        }
+      },
+      "result": {
+        "ok": true,
+        "audit_status": "passed",
+        "missing_fields": [],
+        "risks": []
+      }
+    }
+  ]
+}

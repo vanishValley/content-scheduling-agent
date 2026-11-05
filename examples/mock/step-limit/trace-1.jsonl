@@ -1,0 +1,2 @@
+{"step":1,"action":{"name":"read_material","arguments":{"material_id":"M01","reason":"先核对素材元数据"}},"result":{"ok":true,"material":{"title":"字幕功能演示","description":"展示为视频添加字幕的操作","platform":"视频号","rights":"owned"},"supplement_available":false}}
+{"step":2,"action":{"name":"check_rules","arguments":{"material_id":"M01","reason":"核对已读取资料是否符合规则"}},"result":{"ok":true,"audit_status":"passed","missing_fields":[],"risks":[]}}

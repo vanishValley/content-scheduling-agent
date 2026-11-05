@@ -1,0 +1,10 @@
+{
+  "command": "node scripts/run-tests.js",
+  "started_at": "2026-11-05T10:40:34.089Z",
+  "finished_at": "2026-11-05T10:40:34.512Z",
+  "node": "v22.18.0",
+  "exit_code": 0,
+  "tests": 27,
+  "passed": 27,
+  "failed": 0
+}

@@ -1,0 +1,62 @@
+{
+  "started_at": "2026-11-05T10:40:34.773Z",
+  "provider": {
+    "kind": "mock",
+    "model": "deterministic-fixture-policy"
+  },
+  "request": {
+    "material_ids": [
+      "M01"
+    ],
+    "desired_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true
+  },
+  "max_steps": 12,
+  "finished_at": "2026-11-05T10:40:34.773Z",
+  "status": "incomplete",
+  "reason": "部分素材尚未完成，请检查工具结果与错误记录",
+  "items": [
+    {
+      "material_id": "M01",
+      "audit_status": "unchecked",
+      "risks": [],
+      "missing_fields": [],
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "save_status": "not_attempted",
+      "draft_id": null,
+      "last_error": "read_material:TOOL_UNAVAILABLE",
+      "status": "incomplete"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "action": {
+        "name": "read_material",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "先核对素材元数据"
+        }
+      },
+      "result": {
+        "ok": false,
+        "code": "TOOL_UNAVAILABLE",
+        "retryable": false
+      }
+    },
+    {
+      "step": 2,
+      "action": {
+        "name": "finish",
+        "arguments": {
+          "reason": "已取得保存结果，或现有资料不足以继续"
+        }
+      },
+      "result": {
+        "ok": true,
+        "code": "FINISHED"
+      }
+    }
+  ]
+}

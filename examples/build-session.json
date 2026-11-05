@@ -1,0 +1,11 @@
+{
+  "type": "AI-assisted-build-session",
+  "timezone": "Asia/Shanghai",
+  "started_at": "2026-11-05T10:25:12.000Z",
+  "recorded_at": "2026-11-05T10:41:43.351Z",
+  "elapsed_minutes": 16.5,
+  "scope": "从任务创建到提交包整理；候选人本人用时未提供",
+  "test_summary": "examples/test-results/summary.json",
+  "mock_summary": "examples/mock/summary.json",
+  "live_validation": "未成功；外部凭据调用授权待确认"
+}

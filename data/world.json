@@ -1,0 +1,14 @@
+{
+  "notice": "全部素材、规则与排期均为合成测试数据，不代表小影实际业务制度。",
+  "materials": {
+    "M01": { "title": "字幕功能演示", "description": "展示为视频添加字幕的操作", "platform": "视频号", "rights": "owned" },
+    "M02": { "title": "剪辑教程", "description": "介绍剪辑步骤", "platform": "视频号" },
+    "M03": { "title": "效果宣传", "description": "保证涨粉，效果承诺", "platform": "视频号", "rights": "unknown" },
+    "M04": { "title": "滤镜教程", "description": "演示滤镜选择", "platform": "视频号" },
+    "M05": { "title": "画面裁剪", "description": "演示裁剪操作", "platform": "视频号", "rights": "owned" }
+  },
+  "supplements": { "M04": { "rights": "owned" } },
+  "rules": { "version": "demo-1", "required_fields": ["title", "description", "platform", "rights"], "banned_claims": ["保证涨粉", "百分之百有效"] },
+  "slots": ["2026-11-06T17:00:00+08:00", "2026-11-06T18:00:00+08:00", "2026-11-06T19:00:00+08:00", "2026-11-06T20:00:00+08:00"],
+  "occupied": ["2026-11-06T18:00:00+08:00", "2026-11-06T17:00:00+08:00"]
+}
