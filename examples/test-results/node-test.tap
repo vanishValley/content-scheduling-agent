@@ -2,177 +2,183 @@ TAP version 13
 # Subtest: 验收：normal
 ok 1 - 验收：normal
   ---
-  duration_ms: 23.1837
+  duration_ms: 16.2211
   type: 'test'
   ...
 # Subtest: 验收：missing
 ok 2 - 验收：missing
   ---
-  duration_ms: 3.376
+  duration_ms: 2.0347
   type: 'test'
   ...
 # Subtest: 验收：risk
 ok 3 - 验收：risk
   ---
-  duration_ms: 3.5029
+  duration_ms: 2.0768
   type: 'test'
   ...
 # Subtest: 验收：conflict
 ok 4 - 验收：conflict
   ---
-  duration_ms: 14.2635
+  duration_ms: 5.6416
   type: 'test'
   ...
 # Subtest: 验收：duplicate
 ok 5 - 验收：duplicate
   ---
-  duration_ms: 8.286
+  duration_ms: 15.5379
   type: 'test'
   ...
 # Subtest: 验收：save-failure
 ok 6 - 验收：save-failure
   ---
-  duration_ms: 3.198
+  duration_ms: 3.2418
   type: 'test'
   ...
 # Subtest: 验收：read-failure
 ok 7 - 验收：read-failure
   ---
-  duration_ms: 1.371
+  duration_ms: 2.1991
   type: 'test'
   ...
 # Subtest: 验收：supplement
 ok 8 - 验收：supplement
   ---
-  duration_ms: 6.4517
+  duration_ms: 6.7021
   type: 'test'
   ...
 # Subtest: 验收：changed-occupancy
 ok 9 - 验收：changed-occupancy
   ---
-  duration_ms: 5.0157
+  duration_ms: 6.1625
   type: 'test'
   ...
 # Subtest: 验收：confirmed-change
 ok 10 - 验收：confirmed-change
   ---
-  duration_ms: 4.5229
+  duration_ms: 4.572
   type: 'test'
   ...
 # Subtest: 验收：no-slots
 ok 11 - 验收：no-slots
   ---
-  duration_ms: 1.305
+  duration_ms: 1.9197
   type: 'test'
   ...
 # Subtest: 验收：step-limit
 ok 12 - 验收：step-limit
   ---
-  duration_ms: 1.0821
+  duration_ms: 1.1675
   type: 'test'
   ...
 # Subtest: 保存失败不能被模型的结束文案改成成功
 ok 13 - 保存失败不能被模型的结束文案改成成功
   ---
-  duration_ms: 2.8718
+  duration_ms: 2.853
   type: 'test'
   ...
 # Subtest: 未审核、未查询、越范围操作都无法保存
 ok 14 - 未审核、未查询、越范围操作都无法保存
   ---
-  duration_ms: 1.1118
+  duration_ms: 1.0914
   type: 'test'
   ...
 # Subtest: 模型不能通过工具参数自行批准改期
 ok 15 - 模型不能通过工具参数自行批准改期
   ---
-  duration_ms: 1.4119
+  duration_ms: 1.3123
   type: 'test'
   ...
 # Subtest: 保存时再次检查冲突；查询后被占用也不能写入
 ok 16 - 保存时再次检查冲突；查询后被占用也不能写入
   ---
-  duration_ms: 3.6898
+  duration_ms: 2.8241
   type: 'test'
   ...
 # Subtest: 不同素材不能生成两个已确认的同槽位草稿
 ok 17 - 不同素材不能生成两个已确认的同槽位草稿
   ---
-  duration_ms: 14.2618
+  duration_ms: 10.6707
   type: 'test'
   ...
 # Subtest: 待确认建议不占用可用时段
 ok 18 - 待确认建议不占用可用时段
   ---
-  duration_ms: 9.3243
+  duration_ms: 7.5227
   type: 'test'
   ...
 # Subtest: 多素材保留已成功结果
 ok 19 - 多素材保留已成功结果
   ---
-  duration_ms: 5.0596
+  duration_ms: 4.6361
   type: 'test'
   ...
 # Subtest: 模型网络失败保留未完成状态
 ok 20 - 模型网络失败保留未完成状态
   ---
-  duration_ms: 1.3866
+  duration_ms: 1.2534
   type: 'test'
   ...
 # Subtest: 固定循环到达上限后停止
 ok 21 - 固定循环到达上限后停止
   ---
-  duration_ms: 1.4619
+  duration_ms: 1.2111
   type: 'test'
   ...
 # Subtest: 缺时间、无效日期、重复素材不调用模型
 ok 22 - 缺时间、无效日期、重复素材不调用模型
   ---
-  duration_ms: 1.3652
+  duration_ms: 1.2382
   type: 'test'
   ...
 # Subtest: 存储损坏时明确失败，不覆盖原数据
 ok 23 - 存储损坏时明确失败，不覆盖原数据
   ---
-  duration_ms: 6.3115
+  duration_ms: 11.0592
   type: 'test'
   ...
 # Subtest: 真实保存抛异常也必须记为保存失败
 ok 24 - 真实保存抛异常也必须记为保存失败
   ---
-  duration_ms: 1.3687
+  duration_ms: 2.796
   type: 'test'
   ...
 # Subtest: 同一请求再次选择不同备选时段仍复用原草稿
 ok 25 - 同一请求再次选择不同备选时段仍复用原草稿
   ---
-  duration_ms: 7.7749
+  duration_ms: 6.4846
+  type: 'test'
+  ...
+# Subtest: 真实回归记录：最终需补资料也不能掩盖违规保存尝试
+ok 26 - 真实回归记录：最终需补资料也不能掩盖违规保存尝试
+  ---
+  duration_ms: 12.1867
   type: 'test'
   ...
 # Subtest: 真实适配器把前一轮工具结果送回模型
-ok 26 - 真实适配器把前一轮工具结果送回模型
+ok 27 - 真实适配器把前一轮工具结果送回模型
   ---
-  duration_ms: 2.5403
+  duration_ms: 3.2398
   type: 'test'
   ...
 # Subtest: 上游错误不记录含密钥的服务端正文
-ok 27 - 上游错误不记录含密钥的服务端正文
+ok 28 - 上游错误不记录含密钥的服务端正文
   ---
-  duration_ms: 0.6824
+  duration_ms: 0.7516
   type: 'test'
   ...
 # Subtest: 模型输出多个动作或非 JSON 时拒绝执行
-ok 28 - 模型输出多个动作或非 JSON 时拒绝执行
+ok 29 - 模型输出多个动作或非 JSON 时拒绝执行
   ---
-  duration_ms: 0.5974
+  duration_ms: 0.6636
   type: 'test'
   ...
-1..28
-# tests 28
+1..29
+# tests 29
 # suites 0
-# pass 28
+# pass 29
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 247.1971
+# duration_ms 254.5297

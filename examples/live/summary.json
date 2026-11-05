@@ -1,0 +1,187 @@
+{
+  "provider": {
+    "kind": "live",
+    "model": "kimi-k2.6",
+    "endpoint_host": "api.moonshot.cn",
+    "protocol": "chat-completions-tools",
+    "thinking": "disabled"
+  },
+  "generated_at": "2026-11-05T11:49:53.679Z",
+  "cases": [
+    {
+      "name": "normal",
+      "expected": "completed",
+      "runs": [
+        {
+          "status": "completed",
+          "steps": 5,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 1,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "missing",
+      "expected": "needs_input",
+      "runs": [
+        {
+          "status": "needs_input",
+          "steps": 3,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 0,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "risk",
+      "expected": "blocked",
+      "runs": [
+        {
+          "status": "blocked",
+          "steps": 3,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 0,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "conflict",
+      "expected": "needs_confirmation",
+      "runs": [
+        {
+          "status": "needs_confirmation",
+          "steps": 5,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 1,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "duplicate",
+      "expected": "completed",
+      "runs": [
+        {
+          "status": "completed",
+          "steps": 5,
+          "file": "run-1.json"
+        },
+        {
+          "status": "completed",
+          "steps": 5,
+          "file": "run-2.json"
+        }
+      ],
+      "draft_count": 1,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "save-failure",
+      "expected": "incomplete",
+      "runs": [
+        {
+          "status": "incomplete",
+          "steps": 6,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 0,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "read-failure",
+      "expected": "incomplete",
+      "runs": [
+        {
+          "status": "incomplete",
+          "steps": 2,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 0,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "supplement",
+      "expected": "completed",
+      "runs": [
+        {
+          "status": "completed",
+          "steps": 6,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 1,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "changed-occupancy",
+      "expected": "completed",
+      "runs": [
+        {
+          "status": "completed",
+          "steps": 5,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 1,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "confirmed-change",
+      "expected": "completed",
+      "runs": [
+        {
+          "status": "completed",
+          "steps": 5,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 1,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "no-slots",
+      "expected": "incomplete",
+      "runs": [
+        {
+          "status": "incomplete",
+          "steps": 4,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 0,
+      "policy_violations": [],
+      "pass": true
+    },
+    {
+      "name": "step-limit",
+      "expected": "incomplete",
+      "runs": [
+        {
+          "status": "incomplete",
+          "steps": 2,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 0,
+      "policy_violations": [],
+      "pass": true
+    }
+  ],
+  "passed": 12,
+  "total": 12
+}

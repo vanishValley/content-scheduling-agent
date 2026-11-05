@@ -1,0 +1,104 @@
+{
+  "started_at": "2026-11-05T11:51:43.970Z",
+  "provider": {
+    "kind": "live",
+    "model": "kimi-k2.6",
+    "endpoint_host": "api.moonshot.cn",
+    "protocol": "chat-completions-tools",
+    "thinking": "disabled"
+  },
+  "request": {
+    "material_ids": [
+      "M01"
+    ],
+    "desired_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true
+  },
+  "max_steps": 2,
+  "finished_at": "2026-11-05T11:51:47.506Z",
+  "status": "incomplete",
+  "reason": "STEP_LIMIT：达到执行上限，任务未完成；已成功保存的草稿保留",
+  "items": [
+    {
+      "material_id": "M01",
+      "audit_status": "passed",
+      "risks": [],
+      "missing_fields": [],
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "save_status": "not_attempted",
+      "draft_id": null,
+      "status": "incomplete"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "action": {
+        "name": "read_material",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "用户请求审核素材M01并排期至2026-11-06T19:00:00+08:00，需先读取素材信息。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "字幕功能演示",
+          "description": "展示为视频添加字幕的操作",
+          "platform": "视频号",
+          "rights": "owned"
+        },
+        "supplement_available": false
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6dd0cfe946dda27ca571",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 721,
+          "completion_tokens": 55,
+          "total_tokens": 776,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "action": {
+        "name": "check_rules",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "素材M01已读取，需检查必填项、版权和禁用声明以确定是否可保存。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "audit_status": "passed",
+        "missing_fields": [],
+        "risks": []
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6dd2cfe946dda27ca572",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 829,
+          "completion_tokens": 43,
+          "total_tokens": 872,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    }
+  ]
+}

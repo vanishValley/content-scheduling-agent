@@ -5,7 +5,7 @@ export const tools = [
   ['read_material', '读取素材元数据；资料缺失时可补查一次。', object(item, ['material_id', 'reason'])],
   ['check_rules', '检查已读取素材的必填项、版权和禁用声明。未通过不得保存。', object(item, ['material_id', 'reason'])],
   ['query_slots', '查询期望时段及同日备选时段。工具只返回空闲状态，不替用户批准改期。', object(item, ['material_id', 'reason'])],
-  ['save_draft', '保存指定建议时段的草稿；偏离硬性要求且无用户批准时自动标记待确认，不占用排期。', object({ ...item, slot: str }, ['material_id', 'slot', 'reason'])],
+  ['save_draft', '仅当最近审核 audit_status 为 passed 时保存草稿；missing 或 blocked 不得调用。偏离硬性要求且无用户批准时自动待确认，不占用排期。', object({ ...item, slot: str }, ['material_id', 'slot', 'reason'])],
   ['finish', '结束本次处理。结果由已观察到的审核与保存记录生成；没有成功记录不能声称保存成功。', object({ reason: str }, ['reason'])]
 ].map(([name, description, parameters]) => ({ type: 'function', function: { name, description, parameters } }));
 

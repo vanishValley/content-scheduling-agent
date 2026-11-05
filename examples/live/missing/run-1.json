@@ -1,0 +1,138 @@
+{
+  "started_at": "2026-11-05T11:50:07.548Z",
+  "provider": {
+    "kind": "live",
+    "model": "kimi-k2.6",
+    "endpoint_host": "api.moonshot.cn",
+    "protocol": "chat-completions-tools",
+    "thinking": "disabled"
+  },
+  "request": {
+    "material_ids": [
+      "M02"
+    ],
+    "desired_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true
+  },
+  "max_steps": 12,
+  "finished_at": "2026-11-05T11:50:13.005Z",
+  "status": "needs_input",
+  "reason": "资料不足，请补充每项素材的待确认信息",
+  "items": [
+    {
+      "material_id": "M02",
+      "audit_status": "missing",
+      "risks": [],
+      "missing_fields": [
+        "rights"
+      ],
+      "suggested_slot": null,
+      "pending_confirmation": [
+        "请补充：rights"
+      ],
+      "save_status": "not_attempted",
+      "draft_id": null,
+      "status": "needs_input"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "action": {
+        "name": "read_material",
+        "arguments": {
+          "material_id": "M02",
+          "reason": "用户请求处理素材 M02，需先读取素材信息。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "剪辑教程",
+          "description": "介绍剪辑步骤",
+          "platform": "视频号"
+        },
+        "supplement_available": false
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6d6f5649890ed00d03ee",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 721,
+          "completion_tokens": 35,
+          "total_tokens": 756,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "action": {
+        "name": "check_rules",
+        "arguments": {
+          "material_id": "M02",
+          "reason": "已读取素材 M02，需检查必填项、版权和禁用声明。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "audit_status": "missing",
+        "missing_fields": [
+          "rights"
+        ],
+        "risks": []
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6d71a29845ef383736ef",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 802,
+          "completion_tokens": 38,
+          "total_tokens": 840,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 3,
+      "action": {
+        "name": "finish",
+        "arguments": {
+          "reason": "素材 M02 审核状态为 missing，缺少版权信息（rights），且无补充资料可补查，需用户补充版权信息。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "code": "FINISHED"
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6d7304efe5916e652f9e",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 876,
+          "completion_tokens": 43,
+          "total_tokens": 919,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    }
+  ]
+}

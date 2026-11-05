@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-05T10:44:22.009Z",
+  "started_at": "2026-11-05T11:49:46.856Z",
   "provider": {
     "kind": "mock",
     "model": "deterministic-fixture-policy"
@@ -12,7 +12,7 @@
     "hard_time": true
   },
   "max_steps": 12,
-  "finished_at": "2026-11-05T10:44:22.009Z",
+  "finished_at": "2026-11-05T11:49:46.856Z",
   "status": "blocked",
   "reason": "存在审核风险，相关素材已阻断",
   "items": [

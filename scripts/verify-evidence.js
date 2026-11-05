@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
+import { auditRun } from '../src/evaluation.js';
 const { values } = parseArgs({ options: { root: { type: 'string', default: 'examples/mock' } } });
 const summary = JSON.parse(await readFile(join(values.root, 'summary.json'), 'utf8'));
 assert.ok(summary.cases.length >= 3);
@@ -19,6 +20,7 @@ for (const test of summary.cases) {
     const run = JSON.parse(await readFile(join(directory, entry.file), 'utf8'));
     const jsonl = (await readFile(join(directory, entry.file.replace('run-', 'trace-').replace('.json', '.jsonl')), 'utf8')).trim().split('\n').filter(Boolean).map(JSON.parse);
     assert.deepEqual(jsonl, run.trace);
+    assert.deepEqual(auditRun(run), [], '模型不得尝试保存未经审核通过的素材');
     assert.equal(run.provider.kind, summary.provider.kind);
     assert.equal(run.status, test.expected);
     assert.ok(run.trace.length <= run.max_steps);

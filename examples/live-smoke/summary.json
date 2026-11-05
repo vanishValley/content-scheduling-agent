@@ -1,0 +1,26 @@
+{
+  "provider": {
+    "kind": "live",
+    "model": "kimi-k2-turbo-preview",
+    "endpoint_host": "api.moonshot.cn",
+    "protocol": "chat-completions-tools"
+  },
+  "generated_at": "2026-11-05T11:44:36.309Z",
+  "cases": [
+    {
+      "name": "normal",
+      "expected": "completed",
+      "runs": [
+        {
+          "status": "incomplete",
+          "steps": 1,
+          "file": "run-1.json"
+        }
+      ],
+      "draft_count": 0,
+      "pass": false
+    }
+  ],
+  "passed": 0,
+  "total": 1
+}

@@ -3,7 +3,7 @@
 - 题号：第 1 题，素材审核与发布排期 Agent。
 - GitHub URL：待候选人创建仓库并填写。
 - 最终 commit SHA：上传前执行 `git rev-parse HEAD`，复制完整结果到交卷栏。
-- 真实模型记录：当前未完成成功验证，详见 `docs/03-evaluation.md`。
+- 真实模型记录：已使用 kimi-k2.6 运行，详见 `examples/live/` 与 `docs/03-evaluation.md`。
 - 个人贡献与实际用时：待候选人在 `docs/04-ai-usage.md` 中据实补充。
 
 ## 上传步骤

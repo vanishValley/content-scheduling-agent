@@ -5,6 +5,7 @@ import { runAgent } from '../src/agent.js';
 import { DraftStore } from '../src/store.js';
 import { MockProvider, providerFromEnv } from '../src/providers.js';
 import { cases } from './cases.js';
+import { auditRun } from '../src/evaluation.js';
 
 const { values } = parseArgs({ options: { provider: { type: 'string', default: 'mock' }, only: { type: 'string' }, output: { type: 'string' } } });
 if (!['mock', 'live'].includes(values.provider)) throw new Error('provider 只支持 mock 或 live');
@@ -36,8 +37,9 @@ for (const test of selected) {
   await writeFile(join(directory, 'drafts.json'), JSON.stringify(drafts, null, 2) + '\n');
   const outputs = await Promise.all(runs.map(r => readFile(join(directory, r.file), 'utf8').then(JSON.parse)));
   const duplicateOk = test.repeat !== 2 || (drafts.length === 1 && outputs[1].items[0].save_status === 'duplicate');
-  const pass = runs.every(r => r.status === test.expected) && duplicateOk;
-  summary.cases.push({ name: test.name, expected: test.expected, runs, draft_count: drafts.length, pass });
+  const policyViolations = outputs.flatMap((output, index) => auditRun(output).map(v => ({ run: index + 1, ...v })));
+  const pass = runs.every(r => r.status === test.expected) && duplicateOk && policyViolations.length === 0;
+  summary.cases.push({ name: test.name, expected: test.expected, runs, draft_count: drafts.length, policy_violations: policyViolations, pass });
   process.stdout.write(`${pass ? 'PASS' : 'FAIL'} ${test.name}: ${runs.map(r => r.status).join(' / ')}; drafts=${drafts.length}\n`);
 }
 summary.passed = summary.cases.filter(c => c.pass).length;

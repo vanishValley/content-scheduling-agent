@@ -1,0 +1,15 @@
+[
+  {
+    "id": "58fa3d5714b594613c703d38",
+    "material_id": "M04",
+    "requested_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true,
+    "approved_slot": null,
+    "suggested_slot": "2026-11-06T19:00:00+08:00",
+    "effective_slot": "2026-11-06T19:00:00+08:00",
+    "pending_confirmation": false,
+    "status": "draft",
+    "published": false,
+    "material_fingerprint": "6274ff9c43c54f6e0b73fa43b943aed3efacd67f0b872405a8cb7c8c401ec21d"
+  }
+]

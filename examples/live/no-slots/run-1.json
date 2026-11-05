@@ -1,0 +1,182 @@
+{
+  "started_at": "2026-11-05T11:51:37.352Z",
+  "provider": {
+    "kind": "live",
+    "model": "kimi-k2.6",
+    "endpoint_host": "api.moonshot.cn",
+    "protocol": "chat-completions-tools",
+    "thinking": "disabled"
+  },
+  "request": {
+    "material_ids": [
+      "M01"
+    ],
+    "desired_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true
+  },
+  "max_steps": 12,
+  "finished_at": "2026-11-05T11:51:43.933Z",
+  "status": "incomplete",
+  "reason": "部分素材尚未完成，请检查工具结果与错误记录",
+  "items": [
+    {
+      "material_id": "M01",
+      "audit_status": "passed",
+      "risks": [],
+      "missing_fields": [],
+      "suggested_slot": null,
+      "pending_confirmation": [],
+      "save_status": "not_attempted",
+      "draft_id": null,
+      "last_error": "query_slots:NO_AVAILABLE_SLOT",
+      "status": "incomplete"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "action": {
+        "name": "read_material",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "开始处理素材 M01 的审核与排期请求"
+        }
+      },
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "字幕功能演示",
+          "description": "展示为视频添加字幕的操作",
+          "platform": "视频号",
+          "rights": "owned"
+        },
+        "supplement_available": false
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6dc95649890ed00d0414",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 721,
+          "completion_tokens": 34,
+          "total_tokens": 755,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "action": {
+        "name": "check_rules",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "素材已读取，检查必填项、版权和禁用声明"
+        }
+      },
+      "result": {
+        "ok": true,
+        "audit_status": "passed",
+        "missing_fields": [],
+        "risks": []
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6dcb04efe5916e652fbd",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 809,
+          "completion_tokens": 34,
+          "total_tokens": 843,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 3,
+      "action": {
+        "name": "query_slots",
+        "arguments": {
+          "material_id": "M01",
+          "reason": "审核已通过，查询期望时段及备选空闲时段"
+        }
+      },
+      "result": {
+        "ok": true,
+        "desired_slot": "2026-11-06T19:00:00+08:00",
+        "slots": [
+          {
+            "slot": "2026-11-06T17:00:00+08:00",
+            "available": false
+          },
+          {
+            "slot": "2026-11-06T18:00:00+08:00",
+            "available": false
+          },
+          {
+            "slot": "2026-11-06T19:00:00+08:00",
+            "available": false
+          },
+          {
+            "slot": "2026-11-06T20:00:00+08:00",
+            "available": false
+          }
+        ]
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6dcc04efe5916e652fbe",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 877,
+          "completion_tokens": 32,
+          "total_tokens": 909,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 4,
+      "action": {
+        "name": "finish",
+        "arguments": {
+          "reason": "素材 M01 审核通过，但用户指定的硬性时段 2026-11-06T19:00:00+08:00 及当日所有备选时段均无空闲，无法排期"
+        }
+      },
+      "result": {
+        "ok": true,
+        "code": "FINISHED"
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6dcecfe946dda27ca570",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 1045,
+          "completion_tokens": 56,
+          "total_tokens": 1101,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    }
+  ]
+}

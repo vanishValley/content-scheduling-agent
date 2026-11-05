@@ -4,6 +4,8 @@
 
 项目只保存草稿。`completed` 表示草稿处理完成，所有草稿的 `published` 都是 `false`。
 
+已保留 29 项测试报告、12 组离线评估和 12 组 kimi-k2.6 真实模型评估。真实记录包含首次误判及提示词修订后的结果，见 [验证结果](docs/03-evaluation.md)。
+
 ## 评审从哪里看
 
 - [需求与验收标准](docs/01-requirements.md)：业务边界、输入输出和六项必验场景。
@@ -58,6 +60,8 @@ node src/cli.js --input examples/inputs/conflict.json --provider mock --store .r
 
 复制 `.env.example` 为 `.env`，填入自己获准使用的服务地址、模型名和密钥，再执行：
 
+本次联调配置为 `AGENT_MODEL=kimi-k2.6`、`AGENT_THINKING=disabled`。后一个参数按 [Moonshot 官方模型使用说明](https://huggingface.co/moonshotai/Kimi-K2.6#chat-completion)设置；换用其他服务时，若不支持 `thinking`，可将其留空。旧模型名可能已不可用，遇到 404 应先核对该服务的模型列表。
+
 ```powershell
 node --env-file=.env src/cli.js --provider live --input examples/inputs/conflict.json --store .runtime/live-demo --output .runtime/live-output.json
 node --env-file=.env scripts/evaluate.js --provider live
@@ -79,6 +83,8 @@ node scripts/verify-evidence.js
 ```
 
 测试报告保存在 `examples/test-results/`。每组评估保留输入、实际输出、逐步 Trace 和最终草稿列表。可以把 `examples/inputs/changed-occupancy.json` 的占用时段换掉再运行，比较模型收到的新结果及后续动作。
+
+`examples/live/` 是最终真实模型记录；`examples/regressions/` 保留首次缺资料误判。评估除了检查最终状态，也会把未经审核通过的保存尝试计为失败。`examples/live-probe/` 和 `examples/live-smoke/` 是历史连接与旧模型配置失败记录，不计入最终结果。
 
 ## 当前限制
 

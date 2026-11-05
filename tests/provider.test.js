@@ -4,7 +4,7 @@ import { LiveProvider } from '../src/providers.js';
 const request = { material_ids: ['M01'], desired_slot: '2026-11-06T18:00:00+08:00', hard_time: true };
 test('真实适配器把前一轮工具结果送回模型', async () => {
   let sent;
-  const provider = new LiveProvider({ apiKey: 'test-only', baseUrl: 'https://example.invalid/v1', model: 'test', fetchImpl: async (url, init) => {
+  const provider = new LiveProvider({ apiKey: 'test-only', baseUrl: 'https://example.invalid/v1', model: 'test', thinking: 'disabled', fetchImpl: async (url, init) => {
     sent = JSON.parse(init.body);
     return { ok: true, json: async () => ({ id: 'response-test', model: 'test', choices: [{ message: { tool_calls: [{ function: { name: 'query_slots', arguments: '{"material_id":"M01","reason":"已通过审核"}' } }] } }] }) };
   } });
@@ -12,6 +12,7 @@ test('真实适配器把前一轮工具结果送回模型', async () => {
   assert.equal(sent.messages.at(-1).role, 'tool');
   assert.equal(JSON.parse(sent.messages.at(-1).content).audit_status, 'passed');
   assert.equal(result.name, 'query_slots');
+  assert.deepEqual(sent.thinking, { type: 'disabled' });
   assert.ok(!JSON.stringify(provider.info).includes('test-only'));
 });
 test('上游错误不记录含密钥的服务端正文', async () => {

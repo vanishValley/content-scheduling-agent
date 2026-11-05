@@ -35,13 +35,15 @@ export class MockProvider {
 }
 
 export class LiveProvider {
-  constructor({ apiKey, baseUrl, model, timeoutMs = 60000, fetchImpl = fetch }) {
+  constructor({ apiKey, baseUrl, model, thinking, timeoutMs = 60000, fetchImpl = fetch }) {
     if (!apiKey || !baseUrl || !model) throw new Error('真实模式需要 AGENT_API_KEY、AGENT_BASE_URL、AGENT_MODEL');
     const url = new URL(baseUrl);
     if (url.protocol !== 'https:' && !['localhost', '127.0.0.1'].includes(url.hostname)) throw new Error('模型服务须使用 HTTPS');
     this.endpoint = `${baseUrl.replace(/\/$/, '')}/chat/completions`;
     this.apiKey = apiKey; this.model = model; this.timeoutMs = timeoutMs; this.fetchImpl = fetchImpl;
-    this.info = { kind: 'live', model, endpoint_host: url.host, protocol: 'chat-completions-tools' };
+    if (thinking !== undefined && thinking !== 'disabled') throw new Error('AGENT_THINKING 仅支持 disabled 或留空');
+    this.thinking = thinking;
+    this.info = { kind: 'live', model, endpoint_host: url.host, protocol: 'chat-completions-tools', thinking: thinking ?? 'service-default' };
   }
   async next({ request, observations }) {
     const messages = [{ role: 'system', content: systemPrompt }, { role: 'user', content: JSON.stringify(request) }];
@@ -55,7 +57,8 @@ export class LiveProvider {
       response = await this.fetchImpl(this.endpoint, {
         method: 'POST', redirect: 'error', signal: AbortSignal.timeout(this.timeoutMs),
         headers: { Authorization: `Bearer ${this.apiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: this.model, messages, tools, tool_choice: 'auto', max_tokens: 1000 })
+        body: JSON.stringify({ model: this.model, messages, tools, tool_choice: 'auto', max_tokens: 1000,
+          ...(this.thinking ? { thinking: { type: this.thinking } } : {}) })
       });
     } catch { throw new Error('MODEL_NETWORK_ERROR：网络失败或超时'); }
     // 不保存服务端错误正文，避免上游回显凭据。
@@ -71,5 +74,5 @@ export class LiveProvider {
 
 export function providerFromEnv(env = process.env) {
   return new LiveProvider({ apiKey: env.AGENT_API_KEY, baseUrl: env.AGENT_BASE_URL, model: env.AGENT_MODEL,
-    timeoutMs: Number(env.AGENT_TIMEOUT_MS ?? 60000) });
+    thinking: env.AGENT_THINKING || undefined, timeoutMs: Number(env.AGENT_TIMEOUT_MS ?? 60000) });
 }

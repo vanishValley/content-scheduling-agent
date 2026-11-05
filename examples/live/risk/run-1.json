@@ -1,0 +1,141 @@
+{
+  "started_at": "2026-11-05T11:50:13.039Z",
+  "provider": {
+    "kind": "live",
+    "model": "kimi-k2.6",
+    "endpoint_host": "api.moonshot.cn",
+    "protocol": "chat-completions-tools",
+    "thinking": "disabled"
+  },
+  "request": {
+    "material_ids": [
+      "M03"
+    ],
+    "desired_slot": "2026-11-06T19:00:00+08:00",
+    "hard_time": true
+  },
+  "max_steps": 12,
+  "finished_at": "2026-11-05T11:50:17.835Z",
+  "status": "blocked",
+  "reason": "存在审核风险，相关素材已阻断",
+  "items": [
+    {
+      "material_id": "M03",
+      "audit_status": "blocked",
+      "risks": [
+        "版权归属未确认",
+        "命中禁用声明：保证涨粉"
+      ],
+      "missing_fields": [],
+      "suggested_slot": null,
+      "pending_confirmation": [
+        "请处理审核风险后重新提交"
+      ],
+      "save_status": "not_attempted",
+      "draft_id": null,
+      "status": "blocked"
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "action": {
+        "name": "read_material",
+        "arguments": {
+          "material_id": "M03",
+          "reason": "用户请求处理素材 M03，需先读取素材信息。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "效果宣传",
+          "description": "保证涨粉，效果承诺",
+          "platform": "视频号",
+          "rights": "unknown"
+        },
+        "supplement_available": false
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6d755649890ed00d03f4",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 721,
+          "completion_tokens": 35,
+          "total_tokens": 756,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "action": {
+        "name": "check_rules",
+        "arguments": {
+          "material_id": "M03",
+          "reason": "素材已读取，需检查必填项、版权和禁用声明。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "audit_status": "blocked",
+        "missing_fields": [],
+        "risks": [
+          "版权归属未确认",
+          "命中禁用声明：保证涨粉"
+        ]
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6d7604efe5916e652fa3",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 809,
+          "completion_tokens": 36,
+          "total_tokens": 845,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "step": 3,
+      "action": {
+        "name": "finish",
+        "arguments": {
+          "reason": "素材 M03 审核未通过，audit_status=blocked，存在版权归属未确认及命中禁用声明（保证涨粉）风险，不得保存草稿。"
+        }
+      },
+      "result": {
+        "ok": true,
+        "code": "FINISHED"
+      },
+      "model": {
+        "response_id": "chatcmpl-6aec6d7804efe5916e652fa4",
+        "model": "kimi-k2.6",
+        "usage": {
+          "prompt_tokens": 892,
+          "completion_tokens": 48,
+          "total_tokens": 940,
+          "cached_tokens": 512,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 512
+          }
+        }
+      }
+    }
+  ]
+}

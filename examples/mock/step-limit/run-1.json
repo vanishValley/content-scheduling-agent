@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-05T10:44:22.153Z",
+  "started_at": "2026-11-05T11:49:47.001Z",
   "provider": {
     "kind": "mock",
     "model": "deterministic-fixture-policy"
@@ -12,7 +12,7 @@
     "hard_time": true
   },
   "max_steps": 2,
-  "finished_at": "2026-11-05T10:44:22.153Z",
+  "finished_at": "2026-11-05T11:49:47.001Z",
   "status": "incomplete",
   "reason": "STEP_LIMIT：达到执行上限，任务未完成；已成功保存的草稿保留",
   "items": [

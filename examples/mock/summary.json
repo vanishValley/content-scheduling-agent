@@ -3,7 +3,7 @@
     "kind": "mock",
     "model": "deterministic-fixture-policy"
   },
-  "generated_at": "2026-11-05T10:44:21.944Z",
+  "generated_at": "2026-11-05T11:49:46.807Z",
   "cases": [
     {
       "name": "normal",
@@ -16,6 +16,7 @@
         }
       ],
       "draft_count": 1,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -29,6 +30,7 @@
         }
       ],
       "draft_count": 0,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -42,6 +44,7 @@
         }
       ],
       "draft_count": 0,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -55,6 +58,7 @@
         }
       ],
       "draft_count": 1,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -73,6 +77,7 @@
         }
       ],
       "draft_count": 1,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -86,6 +91,7 @@
         }
       ],
       "draft_count": 0,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -99,6 +105,7 @@
         }
       ],
       "draft_count": 0,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -112,6 +119,7 @@
         }
       ],
       "draft_count": 1,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -125,6 +133,7 @@
         }
       ],
       "draft_count": 1,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -138,6 +147,7 @@
         }
       ],
       "draft_count": 1,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -151,6 +161,7 @@
         }
       ],
       "draft_count": 0,
+      "policy_violations": [],
       "pass": true
     },
     {
@@ -164,6 +175,7 @@
         }
       ],
       "draft_count": 0,
+      "policy_violations": [],
       "pass": true
     }
   ],

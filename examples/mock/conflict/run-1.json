@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-05T10:44:22.024Z",
+  "started_at": "2026-11-05T11:49:46.870Z",
   "provider": {
     "kind": "mock",
     "model": "deterministic-fixture-policy"
@@ -12,7 +12,7 @@
     "hard_time": true
   },
   "max_steps": 12,
-  "finished_at": "2026-11-05T10:44:22.028Z",
+  "finished_at": "2026-11-05T11:49:46.873Z",
   "status": "needs_confirmation",
   "reason": "建议草稿已保存，改期仍需用户确认",
   "items": [
